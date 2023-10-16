@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Exemplo de Pilha Estática
 struct Pilha {
     int arr[PILHA]; // Array para armazenar os elementos da pilha
     int topo;      // Índice do topo da pilha
