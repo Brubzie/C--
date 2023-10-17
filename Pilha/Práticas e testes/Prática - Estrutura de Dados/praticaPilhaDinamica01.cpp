@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// Exemplo de Pilha Dinâmica
+// Pilha Dinâmica | Prática 01
 struct Pilha {
     int topo; // Posição do elemento topo
     int capa;
