@@ -1,120 +1,61 @@
 #include <iostream>
+#define PILHA 10 // Tamanho máximo da pilha
 
 using namespace std;
 
-
-// Exemplo de Pilha Dinâmica
+// Exemplo de Pilha Estática
 struct Pilha {
-    int topo; // Posição do elemento topo
-    int capa;
-    float *pElemento;
+    int arr[PILHA]; // Array para armazenar os elementos da pilha
+    int topo;      // Índice do topo da pilha
+
+    Pilha() : topo(-1) {}
+
+    void push(int elemento) {
+        if (topo == PILHA - 1) {
+            cout << "[Erro] Pilha cheia!\n";
+
+            return;
+        }
+
+        arr[++topo] = elemento; // Incrementa o topo e insere o elemento na posição correspondente
+    }
+
+    void pop() {
+        if (topo == -1) {
+            cout << "[Erro] Pilha vazia!\n";
+
+            return;
+        }
+
+        --topo; // Apenas decrementa o topo (elemento será "removido" na próxima inserção)
+    }
+
+    int top() {
+        if (topo == -1) {
+            cout << "[Erro] Pilha vazia!\n";
+            return -1; // Valor indicando erro
+        }
+
+        return arr[topo]; // Retorna o elemento no topo
+    }
+
+    bool isEmpty() {
+        return topo == -1;
+    }
 };
 
-void criarPilha(Pilha *p, int c) {
-    p->topo = -1;
-    p->capa = c;
-    p->pElemento = new float[c];
-}
-
-bool estaVazia(Pilha *p) {
-    return (p->topo == -1);
-}
-
-bool estaCheia(Pilha *p) {
-    return (p->topo == p->capa - 1);
-}
-
-void empilhar(Pilha *p, float v) {
-    p->topo++;
-    p->pElemento[p->topo] = v;
-}
-
-float desempilhar(Pilha *p) {
-    float aux = p->pElemento[p->topo];
-    p->topo--;
-    return aux;
-}
-
-float retornaTopo(Pilha *p) {
-    return p->pElemento[p->topo];
-}
-
 int main() {
+    Pilha pilha;
 
-    Pilha duracell;
-    int capacidade = 0, menu = 0;
-    float valor = 0;
+    pilha.push(5);
+    pilha.push(10);
+    pilha.push(7);
 
-    cout << "Informe a capacidade maxima da pilha\nResposta: ";
-    cin >> capacidade;
+    cout << "Topo da pilha: " << pilha.top() << "\n";
 
-    criarPilha(&duracell, capacidade);
+    pilha.pop();
 
-    while (true) {
-        system ("cls");
-
-        cout << "=== Menu Pilha ===" <<
-             "\n1 - Empilhar (push)" <<
-             "\n2 - Desempilhar (pop)" <<
-             "\n3 - Mostrar o topo" <<
-             "\n4 - Sair" <<
-             "\nOpcao: ";
-        cin >> menu;
-
-        switch (menu) {
-            case 1: // push
-                system("cls");
-
-                if (estaCheia(&duracell)) {
-                    cout << "\nPilha cheia!\n";
-                } else {
-                    cout << "\nInforme o valor: \n";
-                    cin >> valor;
-
-                    empilhar(&duracell, valor);
-                }
-
-                system ("Pause");
-
-                break;
-            case 2: // pop
-                system("cls");
-
-                if (estaVazia(&duracell)) {
-                    cout << "\nPilha vazia!\n";
-                } else {
-                    valor = desempilhar(&duracell);
-                    cout << "\nDesempilhado!\n" << valor << '\n';
-                }
-
-                system ("Pause");
-
-                break;
-            case 3: // Mostra o topo
-                if (estaVazia(&duracell)) {
-                    cout << "\nPilha vazia!\n";
-                } else {
-                    valor = retornaTopo(&duracell);
-                    cout << "\nTopo: " << valor << '\n';
-                }
-
-                system ("Pause");
-
-                break;
-            case 4: // Encerrando o programa
-
-                cout << "\nSaindo...";
-                return 0;
-            default: // Caso seja informando um valor inválido
-                system("cls");
-
-                cout << "\n[ERRO] Escolha uma opcao valida!\n";
-
-                system("Pause");
-
-                break;
-        }
-    }
+    cout << "Topo da pilha apos pop: " << pilha.top() << "\n";
 
     return 0;
 }
