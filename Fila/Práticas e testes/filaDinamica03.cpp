@@ -1,3 +1,8 @@
+/*
+** Prática de fila dinâmica com base em vídeo aula
+** Link: https://www.youtube.com/watch?v=uQjeh1-KXrc
+*/
+
 #include <iostream>
 #include <string>
 #include <locale>
