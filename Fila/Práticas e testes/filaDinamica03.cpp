@@ -2,9 +2,7 @@
 ** Prática de fila dinâmica com base em vídeo aula
 ** Link: https://www.youtube.com/watch?v=uQjeh1-KXrc
 */
-
 #include <iostream>
-#include <string>
 #include <locale>
 #include <cstdlib>
 #include <conio.h>
@@ -85,11 +83,11 @@ void inicializaFila(FILA *f) {
 }
 
 void limpar() {
-    system("cls");
+    system ("cls");
 }
 
 void pausar() {
-    system("Pause");
+    system ("Pause");
 }
 
 int main() {
