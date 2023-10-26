@@ -28,7 +28,6 @@ void pausar() {
     cout << "\nPressione Enter para continuar...\n";
     cin.get();
 }
-// --------------------------------------
 
 typedef int ELEMENTO;
 
