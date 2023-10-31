@@ -1,7 +1,10 @@
-# Exercícios | C++
+# C++ | "C com Classes"
 
-Apenas alguns exercícios feitos para praticar e estudos diários.
-Práticas envolvendo:
+## Exercícios práticos e testes
+
+Aqui irei postar apenas alguns exercícios feitos para praticar, junto de estudos diários.
+
+### Práticas envolvendo:
 
 * Loopings (do while, while e for)
 * Filas (estáticas e dinâmicas)
