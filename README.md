@@ -2,16 +2,18 @@
 
 ## Exercícios práticos e testes
 
-Aqui irei postar apenas alguns exercícios feitos para praticar, junto de estudos diários.
+Aqui irei postar apenas alguns exercícios feitos para prática, junto de estudos realizados ao decorrer do tempo.
 
-### Práticas envolvendo:
+### Práticas
+
+**Exercícios práticos envolvendo:**
 
 * Loopings (do while, while e for)
 * Filas (estáticas e dinâmicas)
 * Pilhas (estáticas e dinâmicas)
+* Lista
 * Struct
-* Typedef
 * Memória heap
 * Switch case
-* Estrutura de dados
+* Estrutura de dados em geral
 * Entre outros...
