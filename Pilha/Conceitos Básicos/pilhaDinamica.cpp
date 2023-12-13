@@ -1,6 +1,24 @@
 #include <iostream>
+#include <locale>
 
 using namespace std;
+
+void clean() {
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+void pause() {
+#ifdef _WIN32
+    system("pause");
+#else
+    cout << "Pressione Enter para continuar..." << endl;
+    cin.ignore(); // Limpa o buffer de entrada
+#endif
+}
 
 struct tipoCelula {
     int item; // Armazena o valor
@@ -10,8 +28,16 @@ struct tipoCelula {
 int pilha_contador;
 tipoCelula *topo;
 
+bool pilha_vazia() {
+    if (topo == nullptr) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 bool pilha_construtor() {
-    topo = NULL;
+    topo = nullptr;
     pilha_contador = 0;
 }
 
@@ -21,9 +47,9 @@ bool pilha_destrutor() {
     if (pilha_vazia()) {
         return false;
     } else {
-        while (topo != NULL) {
+        while (topo != nullptr) {
             topo = topo->prox;
-            temp->prox = NULL;
+            temp->prox = nullptr;
 
             topo = topo->prox;
 
@@ -42,7 +68,7 @@ int pilha_tamanho() {
 bool pilha_push(int valor) { // Empilhar
     tipoCelula *novaCelula = (tipoCelula *)malloc(sizeof(tipoCelula));
 
-    if (novaCelula == NULL) { // Caso o SO não forneça memória RAM
+    if (novaCelula == nullptr) { // Caso o SO não forneça memória RAM
         return false;
     } else {
         novaCelula->item = valor;
@@ -64,7 +90,7 @@ bool pilha_pop(int &valor) { // Desempilhar
         valor = topo->item;
         topo = topo->prox;
 
-        temp->prox = NULL; // Medida de segurança para desligar a célula removida da pilha
+        temp->prox = nullptr; // Medida de segurança para desligar a célula removida da pilha
 
         free(temp); // Livrando a memória
         pilha_contador--;
@@ -83,25 +109,15 @@ bool pilha_get(int &valor) { // Obtém o elemento no topo da pilha
     }
 }
 
-/*
-Pilha cheia é desnecessário
-*/
-
-bool pilha_vazia() {
-    if (topo == NULL) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
 int main() {
 
-    /*
-    int *p;
+    setlocale(LC_ALL, "Portuguese");
 
-    p = (int*)malloc(sizeof(int));
-    */
+    int menu = 0;
+
+    do {
+
+    } while (menu != 4);
 
     return 0;
 }
