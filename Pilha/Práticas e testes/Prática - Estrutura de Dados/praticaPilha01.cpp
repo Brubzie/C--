@@ -1,4 +1,6 @@
 #include <iostream>
+#include <locale>
+
 #define PILHA 10 // Tamanho máximo da pilha
 
 using namespace std;
@@ -12,7 +14,7 @@ struct Pilha {
 
     void push(int elemento) {
         if (topo == PILHA - 1) {
-            cout << "[Erro] Pilha cheia!\n";
+            cout << "[Erro] Pilha cheia!" << endl;
 
             return;
         }
@@ -22,7 +24,7 @@ struct Pilha {
 
     void pop() {
         if (topo == -1) {
-            cout << "[Erro] Pilha vazia!\n";
+            cout << "[Erro] Pilha vazia!" << endl;
 
             return;
         }
@@ -32,7 +34,7 @@ struct Pilha {
 
     int top() {
         if (topo == -1) {
-            cout << "[Erro] Pilha vazia!\n";
+            cout << "[Erro] Pilha vazia!" << endl;
             return -1; // Valor indicando erro
         }
 
@@ -45,17 +47,19 @@ struct Pilha {
 };
 
 int main() {
+    setlocale(LC_ALL, "Portuguese");
+
     Pilha pilha;
 
     pilha.push(5);
     pilha.push(10);
     pilha.push(7);
 
-    cout << "Topo da pilha: " << pilha.top() << "\n";
+    cout << "Topo da pilha: " << pilha.top() << endl;
 
     pilha.pop();
 
-    cout << "Topo da pilha apos pop: " << pilha.top() << "\n";
+    cout << "Topo da pilha após pop: " << pilha.top() << endl;
 
     return 0;
 }

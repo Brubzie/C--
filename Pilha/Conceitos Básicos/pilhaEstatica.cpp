@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int const tamPilha = 1000;
+#define tamPilha = 1000;
 
 int pilha[tamPilha];
 int topo;
@@ -63,7 +63,7 @@ bool pilha_get(int &valor) { // consulta
 
 int main() {
 
-    int valor;
+    int valor = 0;
 
     pilha_construtor();
 
@@ -73,19 +73,19 @@ int main() {
     pilha_push(1);
     pilha_push(2);
 
-    cout << "Quantidade de itens da pilha: " << pilha_tamanho() << '\n';
+    cout << "Quantidade de itens da pilha: " << pilha_tamanho() << endl;
 
     while (pilha_pop(valor)) {
         cout << "\nDesempilhando: " << valor;
     }
 
-    cout << "\n\nQuantidade de itens da pilha: " << pilha_tamanho() << '\n';
+    cout << "\n\nQuantidade de itens da pilha: " << pilha_tamanho() << endl;
 
     pilha_push(2);
     pilha_get(valor);
-    cout << "\nEmpilhando: " << valor << '\n';
+    cout << "\nEmpilhando: " << valor << endl;
 
-    cout << "\nQuantidade de itens da pilha: " << pilha_tamanho() << '\n';
+    cout << "\nQuantidade de itens da pilha: " << pilha_tamanho() << endl;
 
     return 0;
 }

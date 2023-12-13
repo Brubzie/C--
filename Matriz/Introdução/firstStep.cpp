@@ -16,7 +16,7 @@ void pause() {
     system("pause");
 #else
     cout << "Pressione Enter para continuar..." << endl;
-    while (cin.get() != '\n');
+    cin.ignore(); // Limpa o buffer de entrada
 #endif
 }
 
@@ -24,7 +24,7 @@ int main() {
 
     setlocale(LC_ALL, "Portuguese");
 
-    cout << "Começo";
+
 
     return 0;
 }
