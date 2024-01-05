@@ -3,66 +3,32 @@
 #include <sstream> // Para utilizar stringstream
 #include <locale>
 
+#include "CALC_HEADER.h"
+
 using namespace std;
 
-int main() {
+// Protótipos de Funções
+void clean();
+void pause();
+void menu(int &op);
+void calculadora(double &res, double &num, char &operator);
 
-    setlocale (LC_ALL, "Portuguese");
+int main() {
+    setlocale(LC_ALL, "portuguese");
+
+    double res, num;
+    char operator;
+
+    int op;
+    menu(op);
 
     do {
-        
-        // Solicitação da expressão matemática
-        cout << ": ";
-        string expressao;
-        getline(cin, expressao);
-
-        // Avaliação da expressão usando stringstream
-        stringstream ss(expressao);
-        double resultado = 0.0;
-        char operador = '+';
-        double numero;
-
-        // Loop para avaliar a expressão
-        while (ss >> numero) {
-
-            // Realiza a operação correspondente
-            if (operador == '+') {
-
-                resultado += numero;
-
-            } else if (operador == '-') {
-
-                resultado -= numero;
-
-            } else if (operador == '*') {
-
-                resultado *= numero;
-
-            } else if (operador == '/') {
-
-                // Evita divisão por zero
-                if (numero != 0) {
-
-                    resultado /= numero;
-
-                } else {
-
-                    cout << "[Erro] Divisão por zero!\n";
-
-                    return 1;  // Saída com erro
-
-                }
-            }
-
-            // Lê o próximo operador (se houver)
-            ss >> operador;
-        
-        }
-
-        // Imprime o resultado
-        cout << "= " << resultado << "\n\n";
-    
+        clean();
+        calculadora(res, num, operator);
+        pause();   
     } while (true);
+
+    cout << "Saindo..." << endl;
 
     return 0;
 }

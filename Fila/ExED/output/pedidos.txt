@@ -1,0 +1,10 @@
+==== Pedidos ====
+Senha do Pedido: 10
+Cliente: Bruno de Assis Machado Neto
+Quantidade de Pastéis de Pizza: 1
+Quantidade de Pastéis de Queijo: 1
+Quantidade de Pastéis de Frango: 1
+Quantidade de Pastéis de Vento: 1
+Quantidade de Coca-Cola: 2
+Quantidade de Pepsi: 2
+
