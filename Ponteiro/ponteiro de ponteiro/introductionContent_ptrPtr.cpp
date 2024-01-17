@@ -32,7 +32,7 @@ int main() {
     }
 
     // Liberar a memória alocada
-    for (int i = 0; i < 3; i++) {
+    for(int i = 0; i < 3; i++) {
         delete[] matriz[i];
     }
     delete[] matriz;
