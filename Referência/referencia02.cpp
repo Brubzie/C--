@@ -17,7 +17,7 @@ int main() {
     do {
         clean();
 
-        cout << "Menu" << endl
+        cout << "====== Menu ======" << endl
              << "1 - Adicionar Cliente" << endl
              << "2 - Visualizar Clientes" << endl
              << "3 - Editar Cliente" << endl
@@ -102,11 +102,7 @@ int main() {
     } while (menu != 5);
 
     // Liberando a memória alocada
-    while (cabeca != nullptr) {
-        Cliente* atual = cabeca;
-        cabeca = cabeca->prox;
-        delete atual;
-    }
+    destruir(&ListaCompras);
 
     return 0;
 }
