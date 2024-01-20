@@ -120,7 +120,8 @@ int main() {
                 removerPedido(&listaPedidos, senhaEntregue);
             }   break;
             case 5: {
-                destruir(&listaPedidos);
+                cout << "Volte sempre á Pastelaria do Zé!" << endl;
+                cout << "Encerrando...";
             }   break;
             default: {
                 cout << "[ERRO] Informe uma opção válida!" << endl;
@@ -132,8 +133,7 @@ int main() {
 
     limpar();
 
-    cout << "Volte sempre á Pastelaria do Zé!" << endl;
-    cout << "Encerrando...";
+    destruir(&listaPedidos);
 
     return 0;
 }
