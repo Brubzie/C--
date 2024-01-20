@@ -9,18 +9,18 @@ using namespace std;
 // Funções
 void clean() {
     #ifdef _WIN32
-        system("cls");
+    system("cls");
     #else
-        system("clear");
+    system("clear");
     #endif
 }
 
 void pause() {
     #ifdef _WIN32
-        system("pause");
+    system("pause");
     #else
-        cout << "Pressione a tecla ENTER para continuar..." << endl;
-        cin.ignore();
+    cout << "Pressione a tecla ENTER para continuar..." << endl;
+    cin.ignore();
     #endif
 }
 

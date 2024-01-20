@@ -6,6 +6,7 @@
 #include <fstream>
 #include <string>
 #include <limits>
+#include <random>
 
 using namespace std;
 
@@ -266,6 +267,16 @@ void mostrarPedidos(ListaPedidos* lista) {
     if (atual != nullptr) cout << "Relatório de pedidos criado com sucesso!" << endl;
 
     pausar();
+}
+
+void criarSenha(int senhaAleatoria) {
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(1000, 9999);
+
+    senhaAleatoria = dis(gen);
+
+    cout << "Senha: " << senha << endl;
 }
 
 #endif

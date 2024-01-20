@@ -1,6 +1,7 @@
 #include <iostream>
 #include <locale>
 #include <string>
+#include <random>
 #include "REFERENCIA_HEADER.h"
 #include "CLIENTES_HEADER.h"
 

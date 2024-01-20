@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <random>
 
 using namespace std;
 
@@ -45,6 +46,18 @@ void destruir(ListaCompras* lista) {
     } else {
         cout << "[ERRO] Lista de Compras está vazia!" << endl;
     }
+}
+
+void criarSenha(int senha) {
+    senha = 0;
+
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<> dis(1000, 9999);
+
+    senha = dis(gen);
+
+    cout << "Senha: " << senha << endl;
 }
 
 #endif

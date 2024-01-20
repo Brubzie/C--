@@ -5,6 +5,7 @@
 #include <fstream> // Para criar o relatório dentro de um arquivo .txt
 #include <string>
 #include <limits>
+#include <random>
 #include "HEADER_PASTELARIA.h" // Puxando o arquivo de cabeçalho do arquivo
 
 using namespace std;
@@ -59,8 +60,7 @@ int main() {
             case 1: {
                 Pedido novoPedido;
 
-                cout << "Senha: ";
-                cin >> novoPedido.senhaDoPedido;
+                criarSenha(novoPedido.senhaDoPedido);
 
                 cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
@@ -99,18 +99,21 @@ int main() {
                 cin >> novoPedido.refriPepsi;
 
                 cadastrarPedido(&listaPedidos, &novoPedido);
-            }   break;
+                break;
+            }
             case 2: {
-                int senha;
+                int senha = 0;
 
                 cout << "Informe a senha do pedido que deseja editar: ";
                 cin >> senha;
 
                 editarPedido(&listaPedidos, senha);
-            }   break;
+                break;
+            }
             case 3: {
                 mostrarPedidos(&listaPedidos);
-            }   break;
+                break;
+            }
             case 4: {
                 int senhaEntregue;
 
@@ -118,16 +121,19 @@ int main() {
                 cin >> senhaEntregue;
                 
                 removerPedido(&listaPedidos, senhaEntregue);
-            }   break;
+                break;
+            }
             case 5: {
                 cout << "Volte sempre á Pastelaria do Zé!" << endl;
                 cout << "Encerrando...";
-            }   break;
+                break;
+            }
             default: {
                 cout << "[ERRO] Informe uma opção válida!" << endl;
                 cout << "Na tela 'menu', selecione uma opção entre 1 e 5." << endl;
                 pausar();
-            }   break;
+                break;
+            }
         }
     } while (menu != 5);
 

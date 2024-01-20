@@ -7,4 +7,3 @@ Quantidade de Pastéis de Frango: 1
 Quantidade de Pastéis de Vento: 1
 Quantidade de Coca-Cola: 2
 Quantidade de Pepsi: 2
-
