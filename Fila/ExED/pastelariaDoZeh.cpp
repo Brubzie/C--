@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <locale> // Para definir a linguagem pt-br
 #include <fstream> // Para criar o relatório dentro de um arquivo .txt
-#include <string>
+#include <string> // Para guardar dentro de uma variável string elementos de uma linha completa
 #include <limits>
 #include <random>
 #include "HEADER_PASTELARIA.h" // Puxando o arquivo de cabeçalho do arquivo
@@ -67,18 +67,23 @@ int main() {
                 cout << "Informe o nome do cliente: ";
                 getline(cin, novoPedido.nomeDoCliente); // Pode ser informado o nome completo do cliente
 
-                int quantidadePizza, quantidadeQueijo, quantidadeFrango, quantidadeVento;
+                int quantidadePizza = 0;
+                int quantidadeQueijo = 0;
+                int quantidadeFrango = 0;
+                int quantidadeVento = 0;
 
-                cout << "Pastéis de pizza comprados: ";
+                cout << "Informe a quantidade de itens comprados a seguir" << endl;
+
+                cout << "Pastéis de pizza: ";
                 cin >> quantidadePizza;
                 
-                cout << "Pastéis de queijo comprados: ";
+                cout << "Pastéis de queijo: ";
                 cin >> quantidadeQueijo;
                 
-                cout << "Pastéis de frango comprados: ";
+                cout << "Pastéis de frango: ";
                 cin >> quantidadeFrango;
                 
-                cout << "Pastéis de vento comprados: ";
+                cout << "Pastéis de vento: ";
                 cin >> quantidadeVento;
 
                 if (verificarIngredientes(&listaPedidos, quantidadePizza * 30, quantidadeQueijo * 50, quantidadeFrango * 30 + quantidadeVento * 30)) {
@@ -88,14 +93,14 @@ int main() {
                     novoPedido.pasteisDeFrango = quantidadeFrango;
                     novoPedido.pasteisDeVento = quantidadeVento;
                 } else {
-                    cout << "\n[ERRO] Ingredientes insuficientes para fazer os pastéis!\n";
+                    cout << endl << "[ERRO] Ingredientes insuficientes para fazer os pastéis!" << endl;
                     pausar();
                 }
 
-                cout << "Informe a quantidade de Coca-Cola comprada: ";
+                cout << "Coca-Cola: ";
                 cin >> novoPedido.refriCoca;
 
-                cout << "Informe a quantidade de Pepsi comprada: ";
+                cout << "Pepsi: ";
                 cin >> novoPedido.refriPepsi;
 
                 cadastrarPedido(&listaPedidos, &novoPedido);
@@ -125,7 +130,7 @@ int main() {
             }
             case 5: {
                 cout << "Volte sempre á Pastelaria do Zé!" << endl;
-                cout << "Encerrando...";
+                cout << "Saindo...";
                 break;
             }
             default: {
@@ -136,8 +141,6 @@ int main() {
             }
         }
     } while (menu != 5);
-
-    limpar();
 
     destruir(&listaPedidos);
 
