@@ -3,9 +3,8 @@
 #include <cstdlib>
 #include <locale> // Para definir a linguagem pt-br
 #include <fstream> // Para criar o relatório dentro de um arquivo .txt
-#include <string> // Para guardar dentro de uma variável string elementos de uma linha completa
+#include <string>
 #include <limits>
-#include <random>
 #include "HEADER_PASTELARIA.h" // Puxando o arquivo de cabeçalho do arquivo
 
 using namespace std;
@@ -60,30 +59,26 @@ int main() {
             case 1: {
                 Pedido novoPedido;
 
-                criarSenha(novoPedido.senhaDoPedido);
+                cout << "Senha: ";
+                cin >> novoPedido.senhaDoPedido;
 
                 cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
                 cout << "Informe o nome do cliente: ";
                 getline(cin, novoPedido.nomeDoCliente); // Pode ser informado o nome completo do cliente
 
-                int quantidadePizza = 0;
-                int quantidadeQueijo = 0;
-                int quantidadeFrango = 0;
-                int quantidadeVento = 0;
+                int quantidadePizza, quantidadeQueijo, quantidadeFrango, quantidadeVento;
 
-                cout << "Informe a quantidade de itens comprados a seguir" << endl;
-
-                cout << "Pastéis de pizza: ";
+                cout << "Pastéis de pizza comprados: ";
                 cin >> quantidadePizza;
                 
-                cout << "Pastéis de queijo: ";
+                cout << "Pastéis de queijo comprados: ";
                 cin >> quantidadeQueijo;
                 
-                cout << "Pastéis de frango: ";
+                cout << "Pastéis de frango comprados: ";
                 cin >> quantidadeFrango;
                 
-                cout << "Pastéis de vento: ";
+                cout << "Pastéis de vento comprados: ";
                 cin >> quantidadeVento;
 
                 if (verificarIngredientes(&listaPedidos, quantidadePizza * 30, quantidadeQueijo * 50, quantidadeFrango * 30 + quantidadeVento * 30)) {
@@ -97,17 +92,17 @@ int main() {
                     pausar();
                 }
 
-                cout << "Coca-Cola: ";
+                cout << "Informe a quantidade de Coca-Cola comprada: ";
                 cin >> novoPedido.refriCoca;
 
-                cout << "Pepsi: ";
+                cout << "Informe a quantidade de Pepsi comprada: ";
                 cin >> novoPedido.refriPepsi;
 
                 cadastrarPedido(&listaPedidos, &novoPedido);
                 break;
             }
             case 2: {
-                int senha = 0;
+                int senha;
 
                 cout << "Informe a senha do pedido que deseja editar: ";
                 cin >> senha;
@@ -129,8 +124,7 @@ int main() {
                 break;
             }
             case 5: {
-                cout << "Volte sempre á Pastelaria do Zé!" << endl;
-                cout << "Saindo...";
+                destruir(&listaPedidos);
                 break;
             }
             default: {
@@ -142,7 +136,10 @@ int main() {
         }
     } while (menu != 5);
 
-    destruir(&listaPedidos);
+    limpar();
+
+    cout << "Volte sempre á Pastelaria do Zé!" << endl;
+    cout << "Encerrando...";
 
     return 0;
 }

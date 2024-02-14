@@ -6,7 +6,6 @@
 #include <fstream>
 #include <string>
 #include <limits>
-#include <random>
 
 using namespace std;
 
@@ -160,7 +159,7 @@ void editarPedido(ListaPedidos* lista, int senha) {
     if (verificarIngredientes(lista, totalMassa, totalQueijo, totalFrango)) {
         usarIngredientes(lista, totalMassa, totalQueijo, totalFrango);
     } else {
-        cout << "\n[ERRO] Ingredientes insuficientes!\n";
+        cout << endl << "[ERRO] Ingredientes insuficientes!" << endl;
     }
 
     cout << "Informe a nova quantidade de Coca-Cola comprada: ";
@@ -169,7 +168,7 @@ void editarPedido(ListaPedidos* lista, int senha) {
     cout << "Informe a nova quantidade de Pepsi comprada: ";
     cin >> atual->pedido.refriPepsi;
 
-    cout << "\nPedido editado com sucesso!\n";
+    cout << endl << "Pedido editado com sucesso!" << endl;
 
     pausar();
 }
@@ -214,38 +213,43 @@ void removerPedido(ListaPedidos* lista, int senha) {
 void mostrarPedidos(ListaPedidos* lista) {
     Node* atual = lista->primeiro;
 
-    ofstream arquivo("pedidos.txt");
-    if (!arquivo) {
-        cout << "Não foi possível abrir o arquivo." << endl;
-        return;
-    }
+    ofstream arquivo;
 
-    arquivo << "==== Pedidos ====\n";
-
-    if (atual != nullptr) {
-        while (atual != nullptr) {
-            arquivo << "Senha do Pedido: " << atual->pedido.senhaDoPedido << endl;
-            arquivo << "Cliente: " << atual->pedido.nomeDoCliente << endl;
-            arquivo << "Quantidade de Pastéis de Pizza: " << atual->pedido.pasteisDePizza << endl;
-            arquivo << "Quantidade de Pastéis de Queijo: " << atual->pedido.pasteisDeQueijo << endl;
-            arquivo << "Quantidade de Pastéis de Frango: " << atual->pedido.pasteisDeFrango << endl;
-            arquivo << "Quantidade de Pastéis de Vento: " << atual->pedido.pasteisDeVento << endl;
-            arquivo << "Quantidade de Coca-Cola: " << atual->pedido.refriCoca << endl;
-            arquivo << "Quantidade de Pepsi: " << atual->pedido.refriPepsi << endl << endl;
-
-            atual = atual->proximo;  
+    try {
+        arquivo.open("pedidos.txt");
+        if(!arquivo) {
+            throw runtime_error("Não foi possível abrir o arquivo.");
         }
-    } else {
-        arquivo << "[ERRO] A lista de pedidos está vazia!\n";
-        arquivo << "Selecione a opção 1 no menu, para cadastrar seu pedido.\n";
-    }
+        // Informações do arquivo
+        arquivo << "==== Pedidos ====" << endl;
 
-    arquivo.close();
+        if (atual != nullptr) {
+            while (atual != nullptr) {
+                arquivo << "Senha do Pedido: " << atual->pedido.senhaDoPedido << endl;
+                arquivo << "Cliente: " << atual->pedido.nomeDoCliente << endl;
+                arquivo << "Quantidade de Pastéis de Pizza: " << atual->pedido.pasteisDePizza << endl;
+                arquivo << "Quantidade de Pastéis de Queijo: " << atual->pedido.pasteisDeQueijo << endl;
+                arquivo << "Quantidade de Pastéis de Frango: " << atual->pedido.pasteisDeFrango << endl;
+                arquivo << "Quantidade de Pastéis de Vento: " << atual->pedido.pasteisDeVento << endl;
+                arquivo << "Quantidade de Coca-Cola: " << atual->pedido.refriCoca << endl;
+                arquivo << "Quantidade de Pepsi: " << atual->pedido.refriPepsi << endl << endl;
+
+                atual = atual->proximo;  
+            }
+        } else {
+            arquivo << "[ERRO] A lista de pedidos está vazia!" << endl;
+            arquivo << "Selecione a opção 1 no menu, para cadastrar seu pedido." << endl;
+        }
+
+        arquivo.close();
+    } catch(const exception& e) {
+        cerr << "ERRO: " << e.what() << endl;
+    }
 
     // Redefinir 'atual' para o início da lista
     atual = lista->primeiro;
 
-    cout << "==== Pedidos ====\n";
+    cout << "==== Pedidos ====" << endl;
 
     if (atual != nullptr) {
         while (atual != nullptr) {
@@ -260,23 +264,13 @@ void mostrarPedidos(ListaPedidos* lista) {
             atual = atual->proximo;  
         }
     } else {
-        cout << "[ERRO] A lista de pedidos está vazia!\n";
-        cout << "Selecione a opção 1 no menu, para cadastrar seu pedido.\n";
+        cout << "[ERRO] A lista de pedidos está vazia!" << endl;
+        cout << "Selecione a opção 1 no menu, para cadastrar seu pedido." << endl;
     }
 
     if (atual != nullptr) cout << "Relatório de pedidos criado com sucesso!" << endl;
 
     pausar();
-}
-
-void criarSenha(int senhaAleatoria) {
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> dis(1000, 9999);
-
-    senhaAleatoria = dis(gen);
-
-    cout << "Senha: " << senha << endl;
 }
 
 #endif

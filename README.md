@@ -9,16 +9,12 @@ Aqui irei postar apenas alguns exercícios feitos para prática, junto de estudo
 **Exercícios práticos envolvendo:**
 
 * Loopings (do while, while e for)
-* Funções
-* Arquivos de cabeçalho
 * Filas (estáticas e dinâmicas)
 * Pilhas (estáticas e dinâmicas)
-* Lista (duplamente ligada também)
+* Lista
 * Struct
-* Ponteiro (int*)
-* Ponteiro de ponteiro (int**)
-* Referência (int&)
 * Memória heap
 * Switch case
 * Estrutura de dados em geral
+* Try catch
 * Entre outros...
