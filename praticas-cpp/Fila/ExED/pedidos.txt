@@ -1,0 +1,9 @@
+==== Pedidos ====
+Senha do Pedido: 12
+Cliente: Bruno Alves dos Anjos
+Quantidade de Pastéis de Pizza: 12
+Quantidade de Pastéis de Queijo: 2
+Quantidade de Pastéis de Frango: 5
+Quantidade de Pastéis de Vento: 1
+Quantidade de Coca-Cola: 6
+Quantidade de Pepsi: 4
