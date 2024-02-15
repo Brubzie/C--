@@ -15,6 +15,7 @@ Aqui irei postar apenas alguns exercícios feitos para prática, junto de estudo
 * Struct
 * Memória heap
 * Switch case
-* Estrutura de dados em geral
+* Estrutura de dados
 * Try catch
+* Validação de dados
 * Entre outros...
