@@ -9,8 +9,24 @@
 
 using namespace std;
 
+// Protótipo de Função
+void limpar();
+void pausar();
+struct Ingredientes;
+struct Pedido;
+struct Node;
+struct ListaPedidos;
+void inicializar(ListaPedidos*);
+void destruir(ListaPedidos*);
+bool verificarIngredientes(ListaPedidos*, int, int, int);
+void usarIngredientes(ListaPedidos*, int, int, int);
+void cadastrarPedido(ListaPedidos*, Pedido*);
+void editarPedido(ListaPedidos*, int);
+void removerPedido(ListaPedidos*, int);
+void mostrarPedidos(ListaPedidos*);
+
 int main() {
-    setlocale(LC_ALL, "portuguese");
+    setlocale(LC_ALL, "pt_BR.UTF-8");
 
     int menu = 0;
 

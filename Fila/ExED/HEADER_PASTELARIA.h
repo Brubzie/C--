@@ -11,19 +11,19 @@ using namespace std;
 
 // Funções
 void limpar() {
-    #ifdef _WIN32 // <= Identifica se o SO é Windows
+    #ifdef _WIN32 // <= Identifica se o SO utilizado é o Windows
         system("cls");
-    #else
+    #else // Caso não seja, ele executará o seguinte comando
         system("clear");
     #endif
 }
 
 void pausar() {
-    #ifdef _WIN32
+    #ifdef _WIN32 // <= Identifica se o SO utilizado é o Windows
         system("pause");
-    #else
-        cout << "Pressione ENTER para continuar..." << endl;
-        cin.ignore();
+    #else // Caso não seja, ele executará o seguinte comando
+        cout << "Pressione ENTER para continuar...\n";
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
     #endif
 }
 
