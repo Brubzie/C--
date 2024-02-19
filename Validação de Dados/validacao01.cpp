@@ -3,7 +3,6 @@
 #include <limits>
 #include <climits>
 #include <locale>
-#include <locale.h>
 
 using namespace std;
 
@@ -19,7 +18,7 @@ void read_input_int_val(int& var, string str) {
         cout << str;
         cin >> var;
         if(cin.fail()) {
-            cout << "Entrada invÃ¡lida!" << endl;
+            cout << "Entrada inválida!" << endl;
             cin.clear();
             cin.ignore(INT_MAX, '\n');
         } else {
@@ -29,7 +28,7 @@ void read_input_int_val(int& var, string str) {
 }
 
 int main() {
-    setlocale(LC_ALL, "pt_BR.UTF-8");
+    setlocale(LC_ALL, "portuguese");
 
     int idade = 0;
 
@@ -38,7 +37,7 @@ int main() {
     } while(idade <= 0 || idade >= 120);
 
     cout << endl << "Validado com sucesso!" << endl
-         << "VocÃª tem " << idade << " anos" << endl;
+         << "Você tem " << idade << " anos" << endl;
 
     return 0;
 }
