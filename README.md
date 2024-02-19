@@ -9,6 +9,8 @@ Aqui irei postar apenas alguns exercícios feitos para prática, junto de estudo
 **Exercícios práticos envolvendo:**
 
 * Loopings (do while, while e for)
+* Matriz
+* Vetor
 * Filas (estáticas e dinâmicas)
 * Pilhas (estáticas e dinâmicas)
 * Lista
